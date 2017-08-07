@@ -1,0 +1,23 @@
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <%- partial('_partial/date',{post: page}) %> &#8226; <span class="post-meta__tags tags">于&nbsp;<%- partial('_partial/tags',{post: page}) %> </span>
+      <span class="page-pv">
+      &nbsp;阅读&nbsp;<span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title"><%= page.title%></h1>
+  </header>
+
+  <section class="post">
+    <%- page.content%>
+  </section>
+
+</article>
+
+<%- partial('_partial/read-more', {}) %>
+<% if (page.comment || theme.page_comment) { %>
+  <%- partial('_partial/comments',{}) %>
+<% } %>

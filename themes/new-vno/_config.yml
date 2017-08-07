@@ -1,0 +1,28 @@
+menu:
+  #Archives: /archives
+  关于我们: /aboutme
+rss: /atom.xml
+description:
+social:
+  weibo: 
+  github: https://github.com/gdc-sigma
+  stack_overflow: 
+  facebook: 
+  twitter:
+  google_plus: 
+
+page_comment: true
+logo: /images/sigma-logo.png
+background:
+  cover: /images/background-cover.jpg
+  color: cover-slate
+
+archive_date_format: MMM DD
+fancybox: true
+
+google_analytics:
+baidu_tongji:
+favicon: /images/avatar-small.png
+
+#mathjax
+mathjax: true
