@@ -28,3 +28,10 @@ before_script:
 
 script:
 - hexo deploy
+
+notifications:
+  email:
+    recipients:
+      - gdcsigmaer@gmail.com
+    on_success: never
+    on_failure: always
