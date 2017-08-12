@@ -80,4 +80,5 @@ theme: new-vno
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:gdc-sigma/gdc-sigma.github.io.git 
+  repo: git@github.com:gdc-sigma/gdc-sigma.github.io.git
+  branch: master

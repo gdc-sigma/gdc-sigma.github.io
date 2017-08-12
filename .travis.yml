@@ -1,0 +1,30 @@
+language: node_js
+
+node_js: stable
+
+branches:
+  except:
+  - /.*/
+
+branches:
+  only:
+  - source
+
+env:
+  global:
+    secure: "PJg1GNHfqxpy+UXfYthhucr3qIFvW0cRcm7ymEMspwpZ+DTclXtqrhYBfoRCFgDJpDKAe3bah4HjzAcSjnSq0C0E/hOHkXYRAIK9xAIM5c0rn+vPgYwXtxVO5r0vAW8LJVA4LxWqt14Nobk+3vH3/YZggw4+rWMCWw3oJkBRzPc6IOF2jBa6W2jiLBULpdI9cJnDPTHzLDILNuyiQ9/2vdLyCDjqHYg3slbdjmls+8+vxUgpSCosO3i1qRkQOKLaHm2doB091AMkZcZRHQ6g5tuBt/zUvnLzu2J/1tMwGkW4aivNDkxpWd1Yxf/hj7T6zjZVuIETZ5MQz9LU4+1Uf8tAtAWzpYsQBzoXQWE5BEFhkUNLYNGZ0k9J5aa/BLS5rRBg054vO0bdMjs6g0CrRDtJnZYpBW3asdLRNJk94iz/8U8zRGTD48sXhL0iC6uXWOqAtEmHuq36QAJH862vQryutQDAKC3XaLOUWZpuA4xkL/oLQC/ILWZG+R1NunjWXAy7hMsvN3gPL7pG+QG74K8/4iQCgwQPRZQrkoxhDHNFCxlWKUXo9lx3PxJ8Nl/JO5Bl9veiwxDS1qE24aIC6c0T6IA1Iy9zVAnTCik0jbreURTBp9vAVhkJu6gvFhE8qh0WbMTzN2cR+kReiFfgt3ugsW09Nmof2NVOSl6TIRE="
+
+before_install:
+- npm install -g hexo-cli
+- npm install
+
+install:
+- hexo generate
+
+before_script:
+- git config --global user.name 'GDC Sigma'
+- git config --global user.email 'gdcsigmaer@gmail.com'
+- sed -i'' "s~git@github.com:gdc-sigma/gdc-sigma.github.io.git~https://${GH_TOKEN}:x-oauth-basic@github.com/gdc-sigma/gdc-sigma.github.io.git~" _config.yml
+
+script:
+- hexo deploy

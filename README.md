@@ -1,5 +1,7 @@
 # gdc-sigma.github.io
 
+[![Build Status](https://travis-ci.org/gdc-sigma/gdc-sigma.github.io.svg?branch=source)](https://travis-ci.org/gdc-sigma/gdc-sigma.github.io)
+
 This is the repository for the official blog site of GDC Sigma team. [http://gdc-sigma.com/](http://gdc-sigma.com/)
 
 ## Writing New Post
