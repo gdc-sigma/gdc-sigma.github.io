@@ -1,9 +1,12 @@
 ---
-title: storm-kafka stream 卡住问题分析
+title: Storm-Kafka Stream 卡住问题分析
 date: 2017-07-29 12:22:50
-tags: 搞搞事
+tags:
+ - Storm
+ - Kafka
 comments: true
 categories: 技术
+author: 谢志旺
 ---
 
 最近刚上手storm，在进行日志业务分析的时候，使用如下的处理流：
