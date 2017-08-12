@@ -1,73 +1,54 @@
-# GDC-Sigma团队博客使用手册
-> 如果问题请联系我or自行google
+# gdc-sigma.github.io
 
-## 加入团队github
+This is the repository for the official blog site of GDC Sigma team. [http://gdc-sigma.com/](http://gdc-sigma.com/)
 
-username: gdc-sigma
+## Writing New Post
 
-passwd: ****** 请联系我获取
+To write a new post, create a new Markdown file in `source/_posts`. You can check other posts' `.md` files for reference.
 
-将你的ssh key加进去即可
+After you test your post locally, you can commit your changes and push the commit to the `source` branch of `origin`. The blog will be automatically built and deployed to [http://gdc-sigma.com/](http://gdc-sigma.com/) by Travis.
 
-## 安装工具
-* 安装nvm
-```
- $ brew install nvm  
- $ mkdir ~/.nvm
- $ export NVM_DIR=~/.nvm
- $ . $(brew --prefix nvm)/nvm.sh
-```
-* 安装 nodejs
-```
- $ nvm install 4
-```
+## Set Up Environment
 
-* 安装hexo
-```
- $ sudo npm install hexo-cli -g
+The GDC Sigma blog is built by using [Hexo](https://hexo.io/).
+
+### Docker
+
+The repository comes with a `Dockerfile`. It can be used to set up development environment immediately if you had docker installed on your machine:
+
+```bash
+# Build docker image
+docker build -t sigma-blog .
+
+# Start docker containter
+docker run -it --name sigma-blog -h sigma-blog -v .:/sigma-blog -p 4000:4000 sigma-blog
 ```
 
-## 初始化项目
-* init hexo
-```
-$ npm install hexo --save
-```
-* 删除一些文件
-```
-$ rm -r _config.yml source themes
-```
-* init git仓库且获取新的数据
-```
-$ git init
-$ git remote add origin git@github.com:gdc-sigma/blog.git
-$ git pull origin master
-```
-* 增加博客
-```
-$ cd blog/source/_posts
-```
-在这个目录下面，以md格式存储你的博客文件，图片则放在`blog/source/images`下，然后用`[](/images/xxx.jpg)`的方式使用
-注意，博客需要一些规范，在md文件头加上如下信息（示例）：
-```
----
-title: storm-kafka stream 卡住问题分析
-date: 2017-07-29 12:22:50
-tags: 搞搞事
----
-```
-* 预览
-```
-$ hexo s
-```
-然后通过`http://localhost:4000`访问预览
+After executing the above commands, the Hexo server should be running at foreground, which can be stopped by pressing `CTRL+C`.
 
-*  在blog目录下安装hexo-deployer-git自动部署发布工具
-```
- $ npm install hexo-deployer-git --save
-```
-* 发布到线上
-```
-$ hexo clean && hexo g && hexo d
+After you set up the Docker container, next time you can start the container directly by executing the following command:
+
+```bash
+docker start -i sigma-blog
 ```
 
-然后就可以访问`http://gdc-sigma.com`查看啦
+Note that the Hexo server's fs watching might not work in Docker container. If so, please manually restart the Docker container every time you change your post.
+
+### Native NPM
+
+If you prefered to run Hexo on your machine directly, you can use the following commands to install the dependencies:
+
+```bash
+# Install hexo-cli
+npm install -g hexo-cli
+
+# Install dependencies
+npm install
+
+# Start Hexo server
+hexo server
+```
+
+## Contacts
+
+- Official Email: `gdcsigmaer@gmail.com`
